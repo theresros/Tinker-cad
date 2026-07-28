@@ -1,0 +1,29 @@
+// Soil Moisture Sensor with Arduino
+
+const int soilPin = A0;   // Sensor connected to A0
+int moistureValue;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  moistureValue = analogRead(soilPin);
+
+  Serial.print("Soil Moisture Value: ");
+  Serial.println(moistureValue);
+
+  if (moistureValue > 700) {
+    Serial.println("Soil is Dry");
+  }
+  else if (moistureValue > 400) {
+    Serial.println("Soil is Moist");
+  }
+  else {
+    Serial.println("Soil is Wet");
+  }
+
+  Serial.println("------------------------");
+  delay(1000);
+}
